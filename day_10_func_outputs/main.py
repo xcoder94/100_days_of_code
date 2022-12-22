@@ -8,7 +8,7 @@
 #
 # print(format_name('rUstamxon', 'olimxonov'))
 
-# exercise 1 day in month
+# exercise 1 day_11_blackjack in month
 
 # def is_leap(year_arg):
 #     if year_arg % 4 == 0:
