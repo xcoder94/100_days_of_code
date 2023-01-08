@@ -3,8 +3,6 @@ from art import logo, vs
 import random
 import os
 
-
-
 people_data = data
 player_score = 0
 
