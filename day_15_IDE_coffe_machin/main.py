@@ -2,6 +2,7 @@ from recources import MENU, resources
 
 # Variables (for remaining)
 imported_res = resources
+profit = 0
 # Constants for money
 QUARTER = 0.25
 DIMES = 0.10
@@ -22,10 +23,12 @@ def check_resources(client_want, drinks, remaining):
                 return True
 
 
-# Receive payments for drinks
-def process_coins(client_want, drinks, cash):
+# Receive payments for drinks from client
+def process_coins(client_want, drinks):
+    global profit
     drink_cost = drinks[client_want]['cost']
     client_payment = 0
+    change = 0
     quarter = int(input('How many quarters? (0.25): '))
     client_payment += QUARTER * quarter
     print(f'Your payment ${client_payment}')
@@ -39,17 +42,18 @@ def process_coins(client_want, drinks, cash):
     print(f'Your payment ${client_payment}')
 
     pennies = int(input('How many pennies? (0.01): '))
-    client_payment += PENNIES * pennies
+    client_payment += round(PENNIES * pennies, 2)
     print(f'Your payment ${client_payment}')
 
     if client_payment >= drink_cost:
-        change = client_payment - drink_cost
+        change = round(client_payment - drink_cost, 2)
         print(f'Here is your {client_want} ☕ Enjoy!')
-        cash += (client_payment - change)
+        
         if change > 0:
             print(f'Here is {change} in change')
     else:
         print('Sorry that\'s not enough money. Money refunded')
+    profit += round(client_payment - change, 2)
 
 
 def subtract_remains(client_want, drinks):
@@ -64,15 +68,16 @@ machine_is_working = True
 while machine_is_working:
     customer_order = input('What would you like? (espresso/latte/cappuccino): ')
     if customer_order in MENU:
-        check_resources(customer_order, MENU, imported_res)
-        process_coins(customer_order, MENU, imported_res['money'])
-        subtract_remains(customer_order, MENU)
+        check_resss = check_resources(customer_order, MENU, imported_res)
+        if check_resss:
+            process_coins(customer_order, MENU)
+            subtract_remains(customer_order, MENU)
     elif customer_order == 'off':
         machine_is_working = False
     elif customer_order == 'report':
         print(f"Water: {imported_res['water']}ml")
         print(f"Milk: {imported_res['milk']}ml")
         print(f"Coffee: {imported_res['coffee']}g")
-        print(f"money: {imported_res['money']}$")
+        print(f"Profit: {profit} $")
     else:
         print('Please enter the correct name')
