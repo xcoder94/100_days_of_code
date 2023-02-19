@@ -1,9 +1,10 @@
-from turtle import Turtle, Screen
+import turtle as t
 import random
-screen = Screen()
-screen.setup(800, 600)
+screen = t.Screen()
+screen.setup(1280, 720)
 
-tim = Turtle()
+tim = t.Turtle()
+t.colormode(255)
 
 # tim.shape('arrow')
 # tim.color('red')
@@ -48,15 +49,32 @@ colours = ["CornflowerBlue", "DarkOrchid", "IndianRed",
 #     draw_shape(shape_side_n)
 
 # Angela's code end
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    r_color = (r, g, b)
+    return r_color
 
-tim.pensize(10)
-directions = [0, 90, 180, 270]
-for i in range(200):
-    tim.speed(0)
-    tim.color(random.choice(colours))
-    tim.setheading(random.choice(directions))
-    tim.fd(20)
-    
 
+# Random walk started
+# tim.pensize(10)
+# directions = [0, 90, 180, 270]
+# for i in range(200):
+#     tim.speed(0)
+#     tim.color(random_color())
+#     tim.setheading(random.choice(directions))
+#     tim.fd(20)
+# randiom walk ended
+
+
+def draw_spirograph(size_of_gap):
+    for _ in range(int(360 / size_of_gap)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gap)
+
+
+draw_spirograph(5)
 
 screen.exitonclick()
