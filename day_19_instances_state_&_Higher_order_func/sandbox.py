@@ -26,9 +26,8 @@ def turn_clockwise():
 
 
 def clean_and_back():
-    screen.clear()
-    tim.setpos(0, 0)
-    tim.showturtle()
+    tim.home()
+    tim.clear()
 
 
 
