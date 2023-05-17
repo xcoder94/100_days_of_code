@@ -43,13 +43,22 @@ import pandas
 # }
 
 # data = pandas.DataFrame(data_dict)
-# # print(data)
+# print(data)
 # data.to_csv('new_data.csv')
 
-data = pandas.read_csv('./Squirrel_Data.csv')
+data = pandas.read_csv('Squirrel_Data.csv')
 
+grey_squirels_count = len(data[data['Primary Fur Color'] == 'Gray'])
+cinnamon_squirels_count = len(data[data['Primary Fur Color'] == 'Cinnamon'])
+black_squirels_count = len(data[data['Primary Fur Color'] == 'Black'])
 
+new_squirel_dict = {
+    'Fur color': ['Grey','Cinnamon','Black'],
+    'Count': [grey_squirels_count, cinnamon_squirels_count,black_squirels_count]
+}
 
+new_squirel_data = pandas.DataFrame(new_squirel_dict)
+new_squirel_data.to_csv('new_squirel_data.csv')
 
 
 
