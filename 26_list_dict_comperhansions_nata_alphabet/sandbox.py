@@ -1,3 +1,4 @@
+import random
 numbers = [1, 2, 3]
 new_numbers = [new_item + 1 for new_item in numbers]
 # print(new_numbers)
@@ -44,14 +45,21 @@ result = [num for num in numbers if num % 2 == 0]
 
 
 # Exercise 3 - Data Overlap
-with open('file1.txt') as f1, open('file2.txt') as f2:
+with open('./file1.txt') as f1, open('./file2.txt') as f2:
     # convert readed content into list
     f1_content = [int(line.strip()) for line in f1]
     f2_content = [int(line.strip()) for line in f2]
 
-print(f'File 1 numbers {f1_content}')
-print(f'File 2 numbers {f2_content}')
+# print(f'File 1 numbers {f1_content}')
+# print(f'File 2 numbers {f2_content}')
 result = [num for num in f1_content if num in f2_content]
 # Write your code above 👆
 
-print(result)
+# print(result)
+
+
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Fraddie']
+student_score = {student:random.randint(1, 100) for student in names}
+print(student_score)
+
+passed_students = {}
