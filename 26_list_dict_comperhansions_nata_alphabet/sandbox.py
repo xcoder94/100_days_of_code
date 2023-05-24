@@ -60,6 +60,90 @@ result = [num for num in f1_content if num in f2_content]
 
 names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Fraddie']
 student_score = {student:random.randint(1, 100) for student in names}
-print(student_score)
+# print(student_score)
 
-passed_students = {}
+passed_students = {student:score for (student, score) in student_score.items() if score >= 60}
+# print(passed_students)
+
+# Exercise 4 - Dict compoerhansion 1
+sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
+# Don't change code above 👆
+# Write your code below:
+word_list = sentence.split()
+result = {k:len(k) for k in word_list}
+# print(word_list)
+# print(result)
+
+# Exercise 5 - Dict compoerhansion 2
+weather_c = {
+    "Monday": 12,
+    "Tuesday": 14,
+    "Wednesday": 15,
+    "Thursday": 14,
+    "Friday": 21,
+    "Saturday": 22,
+    "Sunday": 24,
+}
+# 🚨 Don't change code above 👆
+
+
+# Write your code 👇 below:
+weather_f = {
+    days:(temp_c * 9 / 5) + 32 for (days, temp_c) in weather_c.items()
+}
+
+# print(weather_f)
+
+# Looping through ictionaries:
+student_dict = {
+    'student': ['Angela', 'James', 'Lilly'],
+    'score': [56, 76, 98]
+}
+# for (key, value) in student_dict.items():
+#     print(key, value)
+
+import pandas
+
+student_data_frame = pandas.DataFrame(student_dict)
+
+# print(student_data_frame)
+
+# Loop through a data frame
+# for (key, value) in student_data_frame.items():
+#     print(value)
+
+# Loop through rows of a data frame
+for (index, row) in student_data_frame.iterrows():
+    # print(row.student)
+    # print(row.score)
+    if row.student == 'Angela':
+        print(row['score'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
