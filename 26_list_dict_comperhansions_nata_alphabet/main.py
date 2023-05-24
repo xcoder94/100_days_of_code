@@ -31,4 +31,5 @@ nato_dict = {row.letter:row.code for (index, row) in nato_alphabet_file.iterrows
 user_name = input('Enter your name: ').upper()
 name_symbols = [symbols for symbols in user_name]
 # print(name_symbols)
-phonetic_code_words = [name_symbols for name_symbols in nato_dict.items() if ]
+phonetic_code_words = [nato_dict[letter] for letter in user_name]
+print(phonetic_code_words)
