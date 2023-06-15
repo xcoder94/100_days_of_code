@@ -49,13 +49,36 @@ facebook_posts = [
     {'Likes': 19, 'Comments': 3}
 ]
 
-total_likes = 0
+# total_likes = 0
 
-for post in facebook_posts:
+# for post in facebook_posts:
+#     try:
+#         total_likes = total_likes + post['Likes']
+#     except KeyError:
+#         pass
+
+
+# print(total_likes)
+
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
+
+import pandas
+
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+print(phonetic_dict)
+
+
+def generate_phonetic():
+    word = input("Enter a word: ").upper()
     try:
-        total_likes = total_likes + post['Likes']
+        output_list = [phonetic_dict[letter] for letter in word]
     except KeyError:
-        pass
+        print('Sorry, only letters in the alphabet please')
+        generate_phonetic()
+    else:
+        print(output_list)
 
 
-print(total_likes)
+generate_phonetic()
