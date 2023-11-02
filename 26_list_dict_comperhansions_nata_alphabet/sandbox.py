@@ -1,4 +1,5 @@
 import random
+
 numbers = [1, 2, 3]
 new_numbers = [new_item + 1 for new_item in numbers]
 # print(new_numbers)
@@ -8,7 +9,7 @@ name = 'Angela'
 new_list = [letter for letter in name]
 # print(new_list)
 
-doubled_nums = [nums * 2 for  nums in range(1, 5)]
+doubled_nums = [nums * 2 for nums in range(1, 5)]
 # print(doubled_nums)
 
 names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Fraddie']
@@ -23,11 +24,11 @@ uppered_long_names = [name.upper() for name in names if len(name) > 5]
 numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 # 🚨 Do Not Change the code above 👆
 
-#Write your 1 line code 👇 below:
+# Write your 1 line code 👇 below:
 
 squared_numbers = [num ** 2 for num in numbers]
 
-#Write your code 👆 above:
+# Write your code 👆 above:
 
 # print(squared_numbers)
 
@@ -35,11 +36,11 @@ squared_numbers = [num ** 2 for num in numbers]
 numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 # 🚨 Do Not Change the code above
 
-#Write your 1 line code 👇 below:
+# Write your 1 line code 👇 below:
 
 result = [num for num in numbers if num % 2 == 0]
 
-#Write your code 👆 above:
+# Write your code 👆 above:
 
 # print(result)
 
@@ -59,10 +60,10 @@ result = [num for num in f1_content if num in f2_content]
 
 
 names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Fraddie']
-student_score = {student:random.randint(1, 100) for student in names}
+student_score = {student: random.randint(1, 100) for student in names}
 # print(student_score)
 
-passed_students = {student:score for (student, score) in student_score.items() if score >= 60}
+passed_students = {student: score for (student, score) in student_score.items() if score >= 60}
 # print(passed_students)
 
 # Exercise 4 - Dict compoerhansion 1
@@ -70,7 +71,7 @@ sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
 # Don't change code above 👆
 # Write your code below:
 word_list = sentence.split()
-result = {k:len(k) for k in word_list}
+result = {k: len(k) for k in word_list}
 # print(word_list)
 # print(result)
 
@@ -89,7 +90,7 @@ weather_c = {
 
 # Write your code 👇 below:
 weather_f = {
-    days:(temp_c * 9 / 5) + 32 for (days, temp_c) in weather_c.items()
+    days: (temp_c * 9 / 5) + 32 for (days, temp_c) in weather_c.items()
 }
 
 # print(weather_f)
@@ -118,32 +119,3 @@ for (index, row) in student_data_frame.iterrows():
     # print(row.score)
     if row.student == 'Angela':
         print(row['score'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
