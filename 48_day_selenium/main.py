@@ -38,5 +38,8 @@ while time.time() < t_end:
                 driver.find_element(By.ID, f"{element_id}").click()
             else:
                 pass
+    upgrades = []
+    reversed_prices = []
+
 driver.close()  # Closes only tab
 # driver.quit()   # Closes browser
