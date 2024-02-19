@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {{ bootstrap.load_css() }}
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Library</h1>
+      {% if all_books: %}
+      <ul>
+        {% for book in all_books: %}
+        <li>
+          {{ book.title }} -
+          {{ book.author }} -
+          {{ book.rating }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else: %}
+        <p>Library is empty</p>
+      {% endif %}
+      <a href="{{ url_for('add') }}" class="d-block mt-3">Add book</a>
+
+    </div>
+  </body>
+</html>
