@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% from 'bootstrap5/form.html' import render_form %}
+    {{ bootstrap.load_css() }}
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <h4>Book name: {{ book.title }}</h4>
+      <p>Current rating: {{ book.rating }}</p>
+      {{ render_form(form) }}
+      <a href="{{ url_for('add') }}" class="d-block mt-3">Add new book</a>
+
+    </div>
+  </body>
+</html>
