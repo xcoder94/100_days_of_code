@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{{ cafe.name }}</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Laptop Friendly</div>
+        <nav>
+            <a href="#">All Cities</a>
+            <a href="#">Suggest Places</a>
+            <a href="#">Join Community</a>
+        </nav>
+    </header>
+
+    <div class="cafe-container">
+        <div class="cafe-header">
+            <img src="{{ cafe.img_url }}">
+            <h1>{{ cafe.name }}</h1>
+            <div class="rating">87% Laptop Friendly</div>
+        </div>
+
+        <div class="cafe-details">
+            <div class="cafe-info">
+                <p><strong>Today:</strong> 08:00 - 00:00</p>
+                <p><strong>Address:</strong> {{ cafe.location }}</p>
+                <p><strong>Visits:</strong> 2</p>
+                <p><strong>Vibes:</strong> 0</p>
+            </div>
+
+            <div class="features">
+                <h2>Features</h2>
+                <div class="feature-category">
+                    <p>Sockets: {{ cafe.has_sockets | bool_to_str }}</p>
+                    <p>WiFi: {{ cafe.has_wifi | bool_to_str }}</p>
+                    <p>Calls: {{ cafe.can_take_calls | bool_to_str }}</p>
+                    <p>Seats: {{ cafe.seats }}</p>
+                    <p>Price: {{ cafe.coffee_price }}</p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

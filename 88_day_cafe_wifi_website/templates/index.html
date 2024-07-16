@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Laptop Friendly - Tashkent</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Laptop Friendly</div>
+        <nav>
+            <a href="#">All Cities</a>
+            <a href="#">Suggest Places</a>
+            <a href="#">Join Community</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <div class="filters">
+                <h2>Filters</h2>
+                <div class="filter-category">
+                    <h3>Productivity</h3>
+                    <ul>
+                        <li>Wi-Fi</li>
+                        <li>Sockets</li>
+                        <li>Long stays</li>
+                        <li>Tables</li>
+                        <li>Quiet</li>
+                        <li>Calls</li>
+                    </ul>
+                </div>
+                <div class="filter-category">
+                    <h3>Community</h3>
+                    <ul>
+                        <li>Work vibe</li>
+                        <li>Groups</li>
+                    </ul>
+                </div>
+                <div class="filter-category">
+                    <h3>Service</h3>
+                    <ul>
+                        <li>Coffee</li>
+                        <li>Food</li>
+                        <li>Veggie</li>
+                        <li>Alcohol</li>
+                        <li>Cards</li>
+                    </ul>
+                </div>
+                <div class="filter-category">
+                    <h3>Space</h3>
+                    <ul>
+                        <li>Light</li>
+                        <li>Outdoor</li>
+                        <li>Spacious</li>
+                        <li>Restroom</li>
+                        <li>Accessible</li>
+                        <li>A/C</li>
+                        <li>No smoke</li>
+                        <li>Pets</li>
+                        <li>Parking</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Tashkent</h1>
+            <p>The best work and study-friendly cafes, restaurants, libraries, and hotel lobbies in Tashkent. Find venues with free and reliable Wi-Fi hotspots, ample power sockets, and comfy seating areas.</p>
+
+            <div class="places">
+                <h2>5 Work-Friendly Places</h2>
+                {% for cafe in all_cafes %}
+                    <div class="place-card">
+                        <a href="{{ url_for('show_cafe', cafe_id=cafe.id) }}">
+                            <img src="{{ cafe.img_url }}" alt="{{ cafe.name }}">
+                            <div class="card-info">
+                                <h3>{{ cafe.name }}</h3>
+                                <p>cafe.location</p>
+                                <p>London</p>
+                                <span class="rating">87%</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.7533968890874!2d69.26487931541997!3d41.31233677927174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef3b8d8b1f6a7%3A0x42a7ec53986e4d79!2sTashkent!5e0!3m2!1sen!2suz!4v1592458826901!5m2!1sen!2suz" width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+</body>
+</html>
